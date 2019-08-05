@@ -69,7 +69,8 @@
                         <profile>${spring.active.profiles}</profile>
                     </profiles>
                     <environmentVariables>
-                        <GOOGLE_APPLICATION_CREDENTIALS>/Users/wschlosser/google_fcm/serviceAccounts/testwebpush.json</GOOGLE_APPLICATION_CREDENTIALS>
+                        <FIREBASE_PROJECT_DATABASE_URL></FIREBASE_PROJECT_DATABASE_URL>
+                        <GOOGLE_APPLICATION_CREDENTIALS></GOOGLE_APPLICATION_CREDENTIALS>
                     </environmentVariables>
                 </configuration>
             </plugin>

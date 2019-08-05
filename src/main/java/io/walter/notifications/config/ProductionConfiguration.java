@@ -15,7 +15,7 @@ import java.io.IOException;
 @Profile("production")
 public class ProductionConfiguration {
 
-    private static final String FCM_DATABASE_URL = "https://testwebpush-e37e9.firebaseio.com";
+    private final String FIREBASE_PROJECT_DATABASE_URL_ENV_PROPERTY = "FIREBASE_PROJECT_DATABASE_URL";
 
     @Bean
     public MessagingDao getMessagingDao() {
@@ -25,9 +25,11 @@ public class ProductionConfiguration {
     @Bean
     public FirebaseContext getFirebaseContext() throws IOException {
 
+        final String FIREBASE_PROJECT_DATABASE_URL = System.getenv(FIREBASE_PROJECT_DATABASE_URL_ENV_PROPERTY);
+
         final FirebaseOptions options = FirebaseOptions.builder()
                 .setCredentials(GoogleCredentials.getApplicationDefault())
-                .setDatabaseUrl(FCM_DATABASE_URL)
+                .setDatabaseUrl(FIREBASE_PROJECT_DATABASE_URL)
                 .build();
 
         return new FirebaseContext(options);

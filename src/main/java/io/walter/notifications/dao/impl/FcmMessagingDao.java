@@ -20,9 +20,6 @@ public class FcmMessagingDao implements MessagingDao {
         // The notification is show to the user and is not tied to a platform
         final Notification firebaseNotification = new Notification(message.getTitle(), message.getMessage());
 
-        // Platform specific config uses a config object
-        //ApnsConfig iosConfig = ApnsConfig.builder().setAps().putCustomData().build();
-        //AndroidConfig androidConfig = AndroidConfig.builder().setNotification().setTtl().setCollapseKey().build();
         final WebpushConfig webpushConfig = WebpushConfig.builder()
                 .putData("icon", "firebase-logo.png")
                 .putData("click_action","http://localhost:8081")
